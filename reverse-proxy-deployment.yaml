@@ -19,18 +19,19 @@ spec:
 
     spec:
       containers:
-      - name: nginx-reverse-proxy
-        image: nginx:latest
+- name: nginx
+  image: nginx:latest
 
-        ports:
-        - containerPort: 80
+  env:
+  - name: PROXY_POD_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: metadata.name
 
-        volumeMounts:
-        - name: nginx-config-volume
-          mountPath: /etc/nginx/nginx.conf
-          subPath: nginx.conf
+  ports:
+  - containerPort: 80
 
-      volumes:
-      - name: nginx-config-volume
-        configMap:
-          name: nginx-config
+  volumeMounts:
+  - name: nginx-config
+    mountPath: /etc/nginx/nginx.conf
+    subPath: nginx.conf
