@@ -19,3 +19,5 @@ EKS Cluster
           ── backend-service.yaml
 
          ── nginx.conf   (your reverse proxy config)
+
+         --- nginx-configmap.yaml (Kubernetes cannot read nginx.conf directly from your laptop, So we must store it inside Kubernetes)
