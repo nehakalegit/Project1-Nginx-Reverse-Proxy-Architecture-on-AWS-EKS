@@ -20,4 +20,5 @@ EKS Cluster
 
          ── nginx.conf   (your reverse proxy config)
 
-         --- nginx-configmap.yaml (Kubernetes cannot read nginx.conf directly from your laptop, So we must store it inside Kubernetes)
+         --- nginx-configmap.yaml (Kubernetes cannot read nginx.conf directly from your laptop, So we must store it inside Kubernetes, Storage method is called CONFIGMAP)
+         (ConfigMap = "pen drive" inside Kubernetes)
