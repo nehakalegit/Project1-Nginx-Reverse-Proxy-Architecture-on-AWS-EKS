@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
+
 spec:
   replicas: 3
+
   selector:
     matchLabels:
       app: backend
@@ -17,7 +19,15 @@ spec:
       containers:
       - name: backend
         image: hashicorp/http-echo
+
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+
         args:
-        - "-text=Hi from Backend Pod"
+        - "-text=Hi from $(POD_NAME)"
+
         ports:
         - containerPort: 5678
