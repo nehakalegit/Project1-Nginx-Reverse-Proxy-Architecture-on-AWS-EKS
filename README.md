@@ -88,7 +88,7 @@ kubectl apply -f reverse-proxy-service.yaml
 ### 4️⃣ Verify Pods
 
 ```bash
-kubectl get pods
+kubectl get pods -o wide
 ```
 
 ---
